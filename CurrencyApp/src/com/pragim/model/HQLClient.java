@@ -21,12 +21,59 @@ public class HQLClient {
 		
 		
 		//from Currency (select all the records)
-		Query obj= session.createQuery("select c from Currency c where c.id=2");
-		List<Currency> list = obj.list();
-		for (Currency currency : list) {
-			System.out.println(currency.toString());
+		//approch-1 -> select full object from DB
+		//list of pojos
+		Query obj= session.createQuery("select c from Currency c");
+		List<Currency> list1 = obj.list();
+		
+		//conversion from ResultSet to list
+		/*
+		 * List<Currency> curList = new ArrayList<Currency>();
+		 * while(rs.next()){
+		 * 		Currency obj = new Currency();
+		 * 		obj.setId(rs.getInt(1));
+		 * 		obj.setString(rs.getString(2));
+		 * 		obj.setString(rs.getString(3));
+		 * 		curList.add(obj);
+		 * }
+		 */
+		for (Currency currency : list1) {
+			System.out.println(currency.getId()+" "+currency.getName()+" "+currency.getSymbol());
 		}
-
+		
+		//approch -2 -> select partial object from DB
+		//list of object arrays
+		Query createQuery = 
+				session.createQuery("select c.name, c.symbol from Currency c");
+		List<Object[]> list2 = createQuery.list();
+		
+		/*List<Object[]> curList2 = new ArrayList<Object[]>();
+		 * while(rs.next()){
+		 * 		Object[] obj = new Object[2];
+		 * 		obj[0] = rs.getString(1);
+		 * 		obj[1] = rs.getString(2);
+		 * 		curList.add(obj);
+		 * }
+		 * 
+		 * 
+		 */
+		for(Object[] data:list2){
+			System.out.println(data[0]+" "+data[1]);
+		}
+		
+		//list of specific property
+		Query query3 = session.createQuery("select c.name from Currency c");
+		List<String> list3 = query3.list();
+		
+		/*	List<String> curList2 = new ArrayList<String>();
+		 * 	while(rs.next()){
+		 * 		curList2.add(rs.getString(1));
+		 * }
+		 * 
+		 */
+		for (String string : list3) {
+			System.out.println(string);
+		}
 	}
 
 }
