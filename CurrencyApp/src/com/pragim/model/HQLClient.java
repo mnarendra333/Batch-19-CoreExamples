@@ -23,7 +23,7 @@ public class HQLClient {
 		//from Currency (select all the records)
 		//approch-1 -> select full object from DB
 		//list of pojos
-		Query obj= session.createQuery("select c from Currency c");
+		Query obj= session.createQuery("from Currency");
 		List<Currency> list1 = obj.list();
 		
 		//conversion from ResultSet to list
