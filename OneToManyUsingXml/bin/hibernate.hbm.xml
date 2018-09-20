@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping>
+
+	<class name="pack1.Vendor" table="vendor">
+		<id name="venId" column="venId"/>
+		<property name="venName" column="venName" length="20"/>
+		
+		<set name="customerList" cascade="all-delete-orphan" >
+			<key column="vendorId"></key>
+			<one-to-many class="pack1.Customer"/>
+			
+		
+		</set>
+	
+	
+	</class>
+	
+	
+	<class name="pack1.Customer" table="customer">
+		<id name="custId" column="custId"></id>
+		<property name="custName" column="custName" length="20"/>
+		<property name="custAddr" column="custAddr" length="20"/>
+	</class>
+
+
+
+
+</hibernate-mapping>

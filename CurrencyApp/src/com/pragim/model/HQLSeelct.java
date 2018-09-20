@@ -1,6 +1,7 @@
 package com.pragim.model;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -18,7 +19,7 @@ public class HQLSeelct {
 		
 		SessionFactory factory = obj.buildSessionFactory();
 		Session session = factory.openSession();
-		
+		/*
 		Query query = session.createQuery("from Currency c");
 		List<Currency> list = query.list();
 		for(Currency obj1:list){
@@ -37,7 +38,29 @@ public class HQLSeelct {
 		List<String> list3 = query3.list();
 		for (String string : list3) {
 			System.out.println(string);
-		}
+		}*/
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter id value");
+		Integer number = sc.nextInt();
+		System.out.println("enter country name");
+		String country = sc.next();
+		
+		Query quryobj = 
+				session.createQuery("select c from Currency c where c.id=:id and c.name = :coun_name");
+		quryobj.setParameter("id", number);
+		quryobj.setParameter("coun_name", country);
+		List<Currency> list = quryobj.list();
+		System.out.println(list);
+		
+		
+		/*Query queryobj2 = session.createQuery("select c from Currency c where c.id=?");
+		queryobj2.setParameter(0, number);
+		List<Currency> list2 = queryobj2.list();
+		System.out.println(list2);*/
+		
+		
+		
 	}
 
 }

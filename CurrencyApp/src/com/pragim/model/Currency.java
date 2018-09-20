@@ -2,6 +2,7 @@ package com.pragim.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +17,7 @@ public class Currency {
 	}
 
 	@Id
+	@GeneratedValue
 	@Column(name="cur_id")
 	private int id;
 	

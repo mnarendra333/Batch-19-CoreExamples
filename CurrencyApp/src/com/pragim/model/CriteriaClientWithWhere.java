@@ -24,26 +24,26 @@ public class CriteriaClientWithWhere {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
 		
-		
 		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		System.out.println("enter id");
 		Integer id = sc.nextInt();
 		List<Currency> list = session.createQuery("select c from Currency c where c.id=?").setParameter(0, id).list();
 		for (Currency currency : list) {
 			System.out.println(currency);
-		}
+		}*/
 		
 		
 		
 		Criteria crit = session.createCriteria(Currency.class);
 		System.out.println("enter name");
 		String countryName = sc.next();
-		List<Currency> list2 = crit.add(Restrictions.eq("name", countryName)).list();
+		List<Currency> list2 = crit.add(Restrictions.eq("name", countryName)).add(Restrictions.eq("id", 2)).list();
 		System.out.println(list2);
 		
-		Criteria crit2 = session.createCriteria(Currency.class);
+		/*Criteria crit2 = session.createCriteria(Currency.class);
 		List<Currency> list3 = crit2.addOrder(Order.asc("name")).list();
-		System.out.println(list3);
+		System.out.println(list3);*/
 		
 		
 		
