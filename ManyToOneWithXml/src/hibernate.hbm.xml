@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+
+
+	<class name="pack1.Vendor" table="vendor">
+	
+		<id name="vendId" column="venid"></id>
+		<property name="venName" column="venName"></property>
+	
+	</class>
+	
+	
+	<class name="pack1.Customer">
+		<id name="custId"></id>
+		
+		<property name="custName" length="20"></property>
+		<property name="custAddr"></property>
+		
+		<many-to-one name="vendor" column="vendorId" cascade="all" class="pack1.Vendor">
+		</many-to-one>
+	
+	</class>
+
+
+
+</hibernate-mapping>
