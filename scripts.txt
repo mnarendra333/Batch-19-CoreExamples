@@ -1,0 +1,67 @@
+scripts for many to many
+
+
+
+Hibernate: drop table Course cascade constraints
+Hibernate: drop table Student cascade constraints
+Hibernate: drop table students_courses cascade constraints
+Hibernate: drop sequence hibernate_sequence
+Hibernate: create table Course (courseId number(10,0) not null, courseName varchar2(20), duration number(10,0) not null, primary key (courseId))
+Hibernate: create table Student (stuId number(10,0) not null, stuAddr varchar2(30), stuName varchar2(30), primary key (stuId))
+Hibernate: create table students_courses (course_id number(10,0) not null, student_id number(10,0) not null, primary key (STUDENT_ID, COURSE_ID))
+Hibernate: alter table students_courses add constraint FK_9fria7n66on6muo22pe85wmxx foreign key (student_id) references Student
+Hibernate: alter table students_courses add constraint FK_r0s4nf6o180t0lnj5crx4s7vf foreign key (course_id) references Course
+Hibernate: create sequence hibernate_sequence
+Sep 26, 2018 8:16:32 AM org.hibernate.tool.hbm2ddl.SchemaExport execute
+INFO: HHH000230: Schema export complete
+Hibernate: select hibernate_sequence.nextval from dual
+Hibernate: select hibernate_sequence.nextval from dual
+Hibernate: select hibernate_sequence.nextval from dual
+Hibernate: select hibernate_sequence.nextval from dual
+Hibernate: select hibernate_sequence.nextval from dual
+Hibernate: insert into Student (stuAddr, stuName, stuId) values (?, ?, ?)
+Hibernate: insert into Course (courseName, duration, courseId) values (?, ?, ?)
+Hibernate: insert into Course (courseName, duration, courseId) values (?, ?, ?)
+Hibernate: insert into Course (courseName, duration, courseId) values (?, ?, ?)
+Hibernate: insert into Student (stuAddr, stuName, stuId) values (?, ?, ?)
+Hibernate: insert into students_courses (STUDENT_ID, COURSE_ID) values (?, ?)
+Hibernate: insert into students_courses (STUDENT_ID, COURSE_ID) values (?, ?)
+Hibernate: insert into students_courses (STUDENT_ID, COURSE_ID) values (?, ?)
+Hibernate: insert into students_courses (STUDENT_ID, COURSE_ID) values (?, ?)
+Hibernate: insert into students_courses (STUDENT_ID, COURSE_ID) values (?, ?)
+Hibernate: insert into students_courses (STUDENT_ID, COURSE_ID) values (?, ?)
+
+
+
+
+
+scripts for joins
+===========================================
+inner join
+outer join
+left join
+right join
+
+
+ select fp.pid,fp.pname,c.c_desc,s.sel_name,s.sel_loc from 
+ flipcart_products fp 
+ innser join  flipcart_comments c
+ on fp.pid=c.p_id full inner join flipcart_sellerinfo s on  fp.pid=s.p_id;
+ 
+ 
+  select count(*) from 
+ flipcart_products fp 
+ innser join  flipcart_comments c
+ on fp.pid=c.p_id full inner join flipcart_sellerinfo s on  fp.pid=s.p_id;
+ 
+
+ select fp.pid,fp.pname,c.c_desc,s.sel_name,s.sel_loc from 
+ flipcart_products fp 
+ full outer join  flipcart_comments c
+ on fp.pid=c.p_id full outer join flipcart_sellerinfo s on  fp.pid=s.p_id;
+ 
+ 
+  select count(*) from 
+ flipcart_products fp 
+ full outer join  flipcart_comments c
+ on fp.pid=c.p_id full outer join flipcart_sellerinfo s on  fp.pid=s.p_id;
