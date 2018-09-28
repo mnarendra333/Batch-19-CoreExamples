@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+
+	<class name="com.pragim.model.Student" table="Student">
+	
+		<id name="stuId" column="stuId">
+			<generator class="sequence">
+			</generator>
+		</id>
+		
+		<property name="stuName" column="stuName"></property>
+		<property name="stuAddr" column="stuAddr"></property>
+		
+		<set name="courses" cascade="all" table="students_courses">
+			<key column="stu_id"/>
+			<many-to-many class="com.pragim.model.Course" column="course_id"></many-to-many>
+		</set>
+	
+	
+	</class>
+	
+	
+	<class name="com.pragim.model.Course" table="Course">
+		<id name="courseId" column="courseId">
+			<generator class="sequence"></generator>
+		</id>
+		
+		<property name="courseName" column="courseName"></property>
+		<property name="duration" column="duration"></property>
+		
+		
+		<set name="students" table="students_courses" cascade="all">
+			<key column="course_id"></key>
+			<many-to-many class="com.pragim.model.Student" column="stu_id"></many-to-many>
+		</set>
+		
+		
+	
+	</class>
+
+
+
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<ehcache>
+
+	<defaultCache maxElementsInMemory="100" eternal="false"
+		timeToIdleSeconds="6" timeToLiveSeconds="200"/>
+		
+	<cache name="pack1.Product" maxElementsInMemory="100" eternal="false"
+		timeToIdleSeconds="10" timeToLiveSeconds="200"/>
+		
+		
+
+</ehcache>
