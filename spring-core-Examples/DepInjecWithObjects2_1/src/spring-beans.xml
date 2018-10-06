@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+
+<beans>
+
+	<bean id="id1" class="com.pragim.model.Person">
+
+		<property name="device" ref="id3"></property>
+
+	</bean>
+
+	<bean id="id2" class="com.pragim.model.Computer">
+		<property name="price" value="130000"></property>
+		<property name="model" value="ThinkPad-Lenovo-x1Carbon"></property>
+		<property name="ramSize" value="16GB"></property>
+		<property name="hardDisk" value="1TB"></property>
+
+	</bean>
+
+	<bean id="id3" class="com.pragim.model.Mobile">
+		<property name="price" value="30000"></property>
+		<property name="model" value="NOte5pro"></property>
+		<property name="ramSize" value="4GB"></property>
+		<property name="hardDisk" value="1TB"></property>
+
+	</bean>
+
+
+
+</beans>       
+        

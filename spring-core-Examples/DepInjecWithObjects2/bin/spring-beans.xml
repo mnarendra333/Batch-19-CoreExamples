@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+        
+ <beans>
+ 
+ 	<bean id="id1" class="com.pragim.model.Person">
+ 		
+ 			<property name="device" ref="id2"></property>
+ 	
+ 	</bean>
+ 	
+ 	<bean id="id2" class="com.pragim.model.Computer"></bean>
+ 	
+ 	<bean id="id3" class="com.pragim.model.Mobile"></bean>
+ 
+ 
+ 
+ </beans>       
+        

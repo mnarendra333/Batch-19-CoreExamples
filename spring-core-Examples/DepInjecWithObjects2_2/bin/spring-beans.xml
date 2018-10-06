@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+
+<beans>
+
+	<bean id="id1" class="com.pragim.model.Person">
+
+		<!-- <property name="device" ref="id3"></property> -->
+
+		<constructor-arg ref="id2" index="0"></constructor-arg>
+
+	</bean>
+
+	<bean id="id2" class="com.pragim.model.Computer">
+		<constructor-arg index="0" value="130000"></constructor-arg>
+		<constructor-arg index="1" value="ThinkPad-Lenovo-x1Carbon"></constructor-arg>
+		<constructor-arg index="2" value="16GB"></constructor-arg>
+		<constructor-arg index="3" value="1TB"></constructor-arg>
+	</bean>
+
+	<bean id="id3" class="com.pragim.model.Mobile">
+		<constructor-arg index="0" value="30000"></constructor-arg>
+		<constructor-arg index="1" value="NOte5pro"></constructor-arg>
+		<constructor-arg index="2" value="4GB"></constructor-arg>
+		<constructor-arg index="3" value="1TB"></constructor-arg>
+
+	</bean>
+
+
+
+</beans>       
+        
