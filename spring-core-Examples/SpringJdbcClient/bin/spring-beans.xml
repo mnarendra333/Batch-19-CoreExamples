@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+        
+ <beans>
+ 
+ 	<bean id="id1" class="pack1.SpringJdbcClientDemo">
+ 		<property name="template">
+ 			<ref local="jt"/>
+ 		</property>
+ 	</bean>
+ 	
+ 	
+ 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+ 		<constructor-arg ref="dataSource"></constructor-arg> 
+ 		<!-- <property name="dataSource">
+ 			<ref local="dataSource"/>
+ 		</property> -->
+ 	</bean>
+ 
+ 	<bean id="dataSource" 
+         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="system" />
+		<property name="password" value="system" />
+	</bean>
+ 
+ </beans>
