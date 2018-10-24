@@ -27,4 +27,19 @@ public class StudentServiceImpl implements StudentService {
 		
 	}
 
+
+	@Override
+	public String deleteStudent(String id) {
+		// TODO Auto-generated method stub
+		int stuId = Integer.parseInt(id);
+		return studentDao.deleteStudent(stuId);
+	}
+
+
+	@Override
+	public String addStudent(Student student) {
+		// TODO Auto-generated method stub
+		return studentDao.addStudent(student);
+	}
+
 }

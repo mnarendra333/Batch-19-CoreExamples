@@ -22,9 +22,27 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public List<Student> getListOfStudents() {
 		// TODO Auto-generated method stub
-		
 		List<Student> studentList = template.query("select * from student_tab", new SelectStudentRowMapper());
 		return studentList;
+	}
+
+	@Override
+	public String deleteStudent(int id) {
+		// TODO Auto-generated method stub
+		String message = null;
+		int count = template.update("delete from student_tab where stu_id=?",id);
+		if(count>0)
+			message = "Student deleted successfully";
+		else
+			message = "Student not deleted";
+		return message;
+	}
+
+	@Override
+	public String addStudent(Student student) {
+		// TODO Auto-generated method stub
+		template.update("insert into student_tab values(STU_SEQ_001.nextval,?,?)", student.getStuName(),student.getAddr());
+		return "Student added successfully";
 	}
 
 }

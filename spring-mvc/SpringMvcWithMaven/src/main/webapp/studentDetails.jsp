@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +11,8 @@
 </head>
 <body>
 
+<h2>${message}</h2>
+
 	<table>
 		<c:forEach items='${list}' var="stu">
 			
@@ -17,11 +20,16 @@
 				<td>${stu.stuId}</td>
 				<td>${stu.stuName}</td>
 				<td>${stu.addr}</td>
+				<td><a href="delete?stuId=${stu.stuId}">delete</a></td>
 			</tr>
 			
 		
 		</c:forEach>
+		
+		
 	</table>
+	
+	<a href="displayAdd">click here to add one more record...!</a>
 
 
 </body>

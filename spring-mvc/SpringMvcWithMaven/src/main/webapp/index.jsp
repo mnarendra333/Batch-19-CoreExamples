@@ -5,6 +5,8 @@
 
 	<a href="welcome">clickMe</a><br>
 	
-	<a href="stulist">StuInfo</a>
+	<a href="stulist">StuInfo</a><br>
+	
+	<a href="displayAdd">AddStudent</a>
 </body>
 </html>
