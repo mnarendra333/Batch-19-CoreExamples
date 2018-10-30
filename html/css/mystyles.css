@@ -1,0 +1,24 @@
+.divClass{
+
+		
+		height: 400px;
+		color: cyan;
+		background-color: #8FBC8F;
+		 width: 750px;
+  		  margin: 0 auto;
+		/*text-align: center;;*/
+
+
+	}
+
+
+	.rowDiv{
+
+		padding: 15px 0px 0px 15px;
+		text-align: center;
+	}
+
+	.labelSpan{
+			font-size: 20px;
+
+	}

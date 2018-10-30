@@ -1,0 +1,107 @@
+<html>
+<link rel="stylesheet" href="css/mystyles.css">
+
+<style type="text/css">
+	
+
+	
+
+	.customInput{
+
+		    width: 241px;
+   		 	height: 30px;
+    		border-radius: 10px;
+	}
+
+	.customBtn{
+
+		color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+	}
+
+
+</style>
+
+<script type="text/javascript">
+	
+		function validateForm(){
+
+				var username = frm1.uname.value;
+				var password = frm1.pwd.value;
+				
+
+				if(username=="" || username=='undefined' || username==null){
+					//alert("please enter username");
+						document.getElementById("uanmeMsg").innerHTML = "please enter username";
+						frm1.uname.focus();
+						return false;
+				}
+				if(password=="" || password=='undefined' || password==null){
+					//alert("please enter password");
+						frm1.pwd.focus();
+						return false;
+				}
+
+
+				return true;
+		}
+
+
+		function makeEmpty(){
+				console.log("inside makeEmpty");
+
+				var username = frm1.uname.value;
+			if(username != "")
+			document.getElementById("uanmeMsg").innerHTML="";
+		
+			return true;
+		}
+
+
+
+
+</script>
+
+<form name="frm1" onsubmit="return validateForm();" action="srv1">
+	
+	<div class="divClass">
+		<div class="rowDiv">
+				<span class="labelSpan">Username</span> : <span><input type="text" id="uname" name="uname" class="customInput" onblur="return makeEmpty();"/></span><span id="uanmeMsg"></span>
+		</div>
+
+		<div class="rowDiv">
+				<span class="labelSpan">Password</span> : <span><input id="pwd" type="password" class="customInput" name="pwd"/></span><span id="pwdMsg"></span>
+		</div>
+
+		<div class="rowDiv">
+				<input type="submit" value="click" class="customBtn"/>
+		</div>
+		
+		
+
+	</div>
+	
+</form>
+
+</html>
