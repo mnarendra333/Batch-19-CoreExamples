@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,11 +26,20 @@ public class BooksController {
 		return bookService.getListOfBooks();
 	}
 
-	@RequestMapping(value = "/delete", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public Map<String, String> deleteBooks(@RequestParam(name = "id") String id) {
 		String deleteBooks = bookService.deleteBooks(id);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("message", deleteBooks);
 		return map;
 	}
+	
+	@RequestMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	public Map<String, String> addBooks(@RequestBody Book book){
+		Map<String, String> map = new HashMap<String, String>();
+		String msg = bookService.addBook(book);
+		map.put("message", msg);
+		return map;
+	}
+	
 }

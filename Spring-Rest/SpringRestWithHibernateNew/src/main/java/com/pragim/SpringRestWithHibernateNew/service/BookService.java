@@ -11,4 +11,7 @@ public interface BookService {
 
 	public List<Book> getListOfBooks();
 	public String deleteBooks(String id);
-	}
+	public String addBook(Book book);
+	
+
+}

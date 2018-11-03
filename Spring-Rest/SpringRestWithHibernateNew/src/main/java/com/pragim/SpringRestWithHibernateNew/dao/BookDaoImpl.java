@@ -42,5 +42,17 @@ public class BookDaoImpl implements BookDao {
 		return "deleted successfully";
 	}
 
+
+	@Override
+	public String addBooks(Book book) {
+		// TODO Auto-generated method stub
+		String message = null;
+		Session session = sessionFactroy.getCurrentSession();
+		int id = (int)session.save(book);
+		if(id!=0)
+			message =  "added successfully";
+		return message;
+	}
+
 	
 }
