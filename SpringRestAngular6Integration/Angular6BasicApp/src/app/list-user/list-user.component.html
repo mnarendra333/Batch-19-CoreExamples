@@ -1,0 +1,42 @@
+<div>
+  
+  <div class="headerDiv">
+    <h2 align="center"> User Details</h2>
+  </div>
+  
+  <div class="addUserDiv">
+    <!-- <button class="btn btn-danger" (click)="addUser()"> Add User</button> -->
+    <span class="fa fa-plus" style="padding-left: 30px;height:40px;width:100px;font-size: x-large !important;color:green;cursor:pointer;border-color: 1px solid brown" (click)="addUser()"></span>
+  </div>
+  <div class="pull-right">
+        <input type="text" id="searchbox" #searchBox/><button class="fa fa-search searchBtn" (click) = "saerchText(searchBox.value)"></button>
+    
+  </div>
+  <div class="col-mx-6">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Action</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td class="hidden">{{user.id}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td><button class="fa fa-trash btn btn-danger" (click)="deleteUser(user)"></button>
+          <button class="fa fa-pencil-square-o btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;"></button></td>
+          <!-- <td><button class="btn btn-danger" (click)="deleteUser(user)">delete</button>
+            <button class="btn btn-primary" (click)="editUser(user)" style="margin-left: 20px;">edit</button></td> -->
+      
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

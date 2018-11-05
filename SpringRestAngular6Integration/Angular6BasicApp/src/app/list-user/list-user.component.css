@@ -1,0 +1,14 @@
+.headerDiv{
+    PADDING-TOP: 20PX;
+    background-color: beige;
+}
+.addUserDiv{
+
+    padding-bottom: 20px;
+}
+.searchBtn{
+    height: 30px;
+    padding-top: 5px;
+    background-color: #c8ac48;
+    margin-right: 10px;
+}
