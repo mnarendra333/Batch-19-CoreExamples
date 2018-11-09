@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,12 +18,15 @@ import com.pragim.SpringRestWithHibernateNew.service.BookService;
 
 @RestController
 public class BooksController {
+	
+	Logger log = Logger.getLogger(BooksController.class);
 
 	@Autowired
 	private BookService bookService;
 
 	@RequestMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public List<Book> getListOfBooks() {
+		log.debug("inside BooksController -> getListOfBooks");
 		return bookService.getListOfBooks();
 	}
 
